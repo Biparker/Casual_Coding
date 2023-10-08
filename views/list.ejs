@@ -1,0 +1,32 @@
+<%- include("header") -%>
+
+  <div class="box" id="heading">
+    <h1> <%= listTitle %> </h1>
+  </div>
+
+<div class="box">
+
+  <% newListProjects.forEach(function(project) {%>
+    <form action = "/delete"  method = "post">
+     <div class="project">
+        <input type="checkbox" name ="checkbox" value ="<%=project._id%>" onChange= "this.form.submit()">
+       <p><%=  project.name %></p>
+       <p><%=  project.desc %></p>
+       </div>
+      </form>
+
+      <% })%>
+
+      <form class="project" action="/" method="post">
+        <input type="text" name="newProject" placeholder="New Project" autocomplete="off">
+        <button type="submit" name="list">+</button>
+      </form>
+
+      <form class="project" action="/" method="post">
+        <input type="text" name="newDesc" placeholder="New Description" autocomplete="off">
+        <button type="submit" name="list">+</button>
+      </form>
+
+  </div>
+
+<%- include("footer") -%>
